@@ -1,1 +1,2 @@
-streamlit run gui.py
+## To Run
+streamlit run app.py
