@@ -1,0 +1,375 @@
+
+CSE6242OAN,O01,O3,Q Spring 2023
+Data and Visual Analytics
+Georgia Tech, College of Computing
+
+Prof. Duen Horng (Polo) Chau
+Associate Professor, School of Computational Science & Engineering
+Associate Director, Master of Science in Analytics
+Machine Learning Area Leader, College of Computing
+Director of Industry Relations, Institute for Data Engineering and Science (IDEaS)
+Associate Director of Corporate Relations, Center for Machine Learning (ML@GT)
+Director, Polo Club of Data Science
+Linkedin    Twitter    Google Scholar    YouTube   
+
+Dr. Mahdi Roozbahani
+Lecturer, School of Computational Science & Engineering
+Linkedin    Google Scholar   
+This course will introduce you to broad classes of techniques and tools for analyzing and visualizing data at scale. Its emphasis is on how to complement computation and visualization to perform effective analysis. We will cover methods from each side, and hybrid ones that combine the best of both worlds. Students will work in small teams to complete a significant project exploring novel approaches for interactive data & visual analytics.
+Course Goals
+
+    Learn visual and computational techniques and tools, for typical data types
+        Learn how to complement each kind of method
+        Gain a breadth of knowledge
+    Work on real datasets and problems
+    Learn practical know-how (useful for jobs, research) through significant hands-on programming assignments
+
+Acknowledgement
+We thank the generous support of Amazon Web Services and Microsoft Azure for free cloud credits, Intel for curriculum development of the memory mapping module (scaling up algorithms with virtual memory), and Tableau for data visualization software.
+Announcements and Discussion
+
+We use Edstem for all announcements and discussion. Everyone must join this class's Ed Discussion through Canvas. Double check that you are joining the correct Edstem! There are multiple concurrent course sections with the same name and course number taking place, e.g., online for OMSA and OMSCS, and campus for Atlanta-based students.
+Students must always use Ed Discussion to communicate with course staff or for any class-related questions. Ed Discussion will be used for general posts, including private and public posts, threads, mega threads, Q&A, and announcements.
+If course staff needs to communicate with specific students (i.e. members of a project team), the Ed Chat feature of Ed Discussion will be used. Students can benefit from this feature to communicate with other students. e.g., to discuss forming a project.
+
+IMPORTANT: Everyone must ensure that the notification setting is on for both Ed Discussion and its Ed Chat feature to stay up to date with the class requirements and prevent losing points because of missing updates and announcements on Ed Discussion.
+
+The fastest way to get help with homework assignments is to post your questions on Ed Discussion. That way, you can get help from our TAs and instructor as well as your peers.
+
+If you prefer that your question is addressed to only our TAs and the instructor, you can use the private post feature (i.e., check the "Individual Students(s) / Instructors(s)" radio box).
+
+While we welcome everyone to share their experiences in tackling issues and helping each other out, we ask that you refrain from posting your answers, as that may affect the learning experience of your fellow classmates.
+
+For special cases such as failed submissions due to system errors, missing grades, failed file uploads, emergencies that prevent you from submitting, or personal issues, you can contact the staff using a private Ed Discussion post.
+Canvas will be used for submission of some assignments and projects, but not for announcements or discussion. Homework assignments will in general be submitted via Gradescope.
+Course Staff & Office Hours
+
+TAs plan to hold office hours starting week 2, except on Georgia Tech holidays (e.g., thanksgiving, MLK day, spring break). Each office hour session will be run by at least one TA, and is 1 hour long. See GT’s academic calendar for the full list of holidays (https://registrar.gatech.edu/calendar). We will spread the office hours across weekdays, and across time of the day. We will announce the office hour times.
+
+We will hold office hours via Slack, where the TA running the office hour will be responsive. We will share information about how to join the appropriate Slack group.
+
+Please note that you are always welcome to ask questions on Ed Discussion. Office hours supplement Ed Discussion, and do not replace it.
+Course Schedule
+For all dates used in this course, their times are 23:59 Anywhere on Earth (11:59 pm AoE). For example, a due date of "January 8" is the same as "January 8, 23:59pm AoE". Convert the times to your local times using a Time Zone Converter.
+
+
+Wk 	Dates 	Topics 	Homework (HW) 	Project
+1 	Jan 	9-13 	* Course Introduction
+* Analytics Building Blocks
+* Data Science Buzzwords
+	HW1 out
+Fri, Jan 13 	 
+2 		16-20 	* MLK Day on Monday (also an official GT holiday)
+* Data Collection
+* SQLite
+* Data Cleaning
+* Class Project Overview
+* Code Back-up & Version Control
+	  	 
+3 	  	23-27 	* Data Integration
+* Data Analytics, Concepts and Tasks
+	  	 
+4 	Feb 	30-3 	* Visualization 101
+* Fixing Common Visualization Issues 	HW1 due
+Fri, Feb 3
+(Sat, 06:59 ET)
+
+HW2 out
+Fri, Feb 3 	
+5 		6-10 	* Data Visualization for Web (D3) 	  	Form project teams by
+Fri, Feb 10
+6 		13-17 	* Scalable Computing: Hadoop
+* Scalable Computing: Pig
+* Scalable Computing: Hive 	  	 
+7 	  	20-24 	* Scalable Computing: Spark
+* Scalable Computing: HBase 	HW2 due
+Fri, Feb 24
+
+HW3 out
+Fri, Feb 24 	 
+8 	Mar 	27-3 	* Classification
+* Visualization for Classification 	  	Proposal Document due
+Fri, Mar 3
+
+Proposal Presentation Slides and Video due
+Fri, Mar 3
+9 		6-10 	* Introduction to Clustering 	  	 
+10 		13-17 	* Graph Analytics
+* Ensemble Method
+* Scaling up Algorithms with Virtual Memory 	HW3 due
+Fri, Mar 17
+(Sat, 07:59 ET)
+HW4 out
+Fri, Mar 17 	 
+11 	  	20-24 	Spring break 	  	 
+12 	  	27-31 	[Work on Project] 	  	Progress Report due
+Fri, Mar 31
+13 	Apr 	3-7 	* Text Analytics 	
+	 
+14 		10-14 	[Work on Project] 	HW4 due
+Fri, Apr 14 	 
+15 		17-21 	[Work on Project] 	  	Poster Presentation Video due
+Fri, Apr 21
+
+Final Report due
+Fri, Apr 21
+16 	  	24-25 	Wrap up, peer assessment 	  	Poster Presentation Video grading starts
+Tue, Apr 25
+
+Poster Presentation Video grading due
+Fri, Apr 28
+This course can be very tough for many!
+WARNING! You are expected to quickly learn many things simultaneously, and for some materials you will need to learn them on your own (e.g., Linux commands, for working with MS Azure/Amazon AWS). This can be very intimidating for many students.
+
+The amounts of time students spend on this class greatly vary, based on their backgrounds, and what they may already know. Some former students told us they spent about 40-60 hours on each homework assignment (we have 4 big assignments, and no exams), and some reported much less. For example, for the homework assignment covering D3 visualization programming students who are completely new to javascript, css, and html likely will spend significantly more time than those of their peers who have prior experience with these technologies. Some former students lacking a strong computer science background report having found the homework assignments quite challenging and demanding of significant time and effort. But they also report having found them rewarding, fun, and "do-able."
+
+Students have at least 3 weeks to complete each homework assignment. In the past, some students have waited until the last week to begin, and could not finish. It is critical to plan ahead and prepare for the significant time required to complete the homework assignments.
+Almost all homework assignments involve very large amounts of programming (which naturally means that a lot of debugging will likely be needed. This can be time consuming, and students should be prepared for the time commitment required.) You should be proficient in at least one high-level programming language (e.g., Python, C++, Java), and should be efficient with debugging principles and practices. For students not meeting these expectations, we recommend taking introductory computing course(s) before taking this course (for exmaple, CSE 6040 for (OMS) Analytics students; CS 1301, CS 1331, CS 1332, CS 1371, etc. for on-campus students).
+
+Some programming assignments involve high-level languages or scripting (e.g., Python, Java, SQL etc.). Some assignments involve web programming and D3 (e.g., Javascript, CSS, HTML). For example, an assignment on Hadoop and Spark may require you to learn some basic Java and Scala quickly, which should not be too challenging if you already know another high-level language like Python or C++. It is unlikely that you know all of the tools/skills needed in every programing task, so you are expected to learn many of them on the fly.
+
+Basic linear algebra, probability and statistics knowledge is also expected.
+Minimum Computer Requirements
+
+    8GB RAM (16GB recommended)
+    512GB disk (SSD recommended). Some assignments use data files that are more than a few GBs, and some uses virtual machines that can easily take up more than tens of GBs. It is typical for some project teams to use large datasets that are more than a few or tens of GBs.
+    Dual-core Core i5 (8th generation or better recommended), or Mac with M1 processor or better
+
+Accessing Course Materials Outside of US
+You may need to use Georgia Tech's VPN. We also recommend checking out some solutions that seem to be working well for OMS students in different countries.
+Homework
+We have 4 big assignments in total (subject to change). Visit this course's Canvas site for the assignment documents. See the schedule table above for deliverable due dates.
+
+    [10%] HW1: Collecting & visualizing data, SQLite, D3 warmup, OpenRefine
+    [15%] HW2: D3 Graphs and Visualization
+    [15%] HW3: Spark, Docker, DataBricks, Cloud Services (AWS, Azure, GCP)
+    [10%] HW4: PageRank, Random Forest, Scikit-Learn
+
+We do not release solutions for homework.
+Can you release homework early? We understand that some students may prefer that homework assignments be released as soon as possible. Behind the scenes, our course staff work diligently to develop new questions, which means testing new datasets, new instructions, new auto graders, solution code, and more! Unfortunately, this means we cannot release assignments in advance.
+Project
+See project description. See the schedule table above for deliverable due dates.
+Grading Policy
+
+    There will be 4 homework assignments. Together, they are worth 50% (10%, 15%, 15%, 10%)  of the course grade.
+    There will be one course group project worth 50% of the course grade. The project components are:
+        Proposal (7.5% of course grade)
+        Proposal presentation (5%) (video recording)
+        Progress report (5%)
+        Final poster presentation (7.5%) (video recording)
+        Final report (25%)
+    You must achieve an overall weighted average of 60% to pass the course.
+    All deliverables will be graded by our TAs, except the project poster presentation, which will be peer-graded.
+    When assigning course grades, I will start with the standard grade thresholds (90, 80, etc.). I may lower (and never raise) the thresholds (i.e., to your benefits). For example, I may use 88 instead of 90.
+
+Plagiarism, Collaboration Policy, and Student Honor Code
+
+    All course participants (myself, teaching assistants, and learners) are expected to know and abide by the Georgia Tech Academic Honor Code.
+    Ethical behavior is extremely important in all facets of life.
+
+    Plagiarism is a serious offense. You are responsible for completing your own work. You are not allowed to copy and paste, or paraphrase, or submit materials created or published by others, as if you created the materials. All materials submitted must be your own.
+    You may discuss high-level ideas with other students at the "whiteboard" level (e.g., how cross validation works, use hashmap instead of array) and review any relevant materials online. However, each student must write up and submit his or her own answers.
+    You must not put your code on public domain (e.g., public GitHub), because a (future) student could copy your code. That student obviously violates the honor code, and you may also be implicated.
+    All incidents of suspected dishonesty, plagiarism, or violations of the Georgia Tech Honor Code will be subject to the institute’s Academic Integrity procedures (e.g., reported to and directly handled by the Office of Student Integrity (OSI)). Consequences can be severe, e.g., academic probation or dismissal, grade penalties, a 0 grade for assignments concerned, and prohibition from withdrawing from the class.
+
+Late Policy and Due Dates
+
+    All homework and project deliverables are due at the times shown in the Course Schedule. These times are subject to change so please check back often. Convert the times to your local times using a Time Zone Converter.
+    Every homework assignment deliverable and every project deliverable comes with a 48-hour "grace period".
+        The grace period is a lenient buffer. Do not use the grace period to begin new work or modify existing work (e.g., submit revised code to Gradescope). In other words, your official final submission must complete before the grace period begins (e.g., fully uploaded, code finished running).
+        If a student decides to make a submission during the grace period, they are responsible for all issues associated with that submission (e.g., any Gradescope errors, including those triggered by student’s syntax errors that crash Gradescope).
+        Course staff support is not guaranteed during the grace period; we provide help only when available.
+        You do not need to ask before using the grace period.
+        Any submission that does not complete by the end of the grace period will receive 0 point. Submit your work before the grace period begins.
+    For Canvas, a submission made during the grace period will be marked as "late", without point deduction. Canvas automatically appends a "version number" to files that you re-submit. You do not need to worry about these version numbers, and there is no need to delete old submissions. We will only grade the most recent submission.
+    For Gradescope, a submission made during the grace period will be marked as "late", without point deduction. Each submission and its score will be recorded and saved by Gradescope. By default, Gradescope uses your last submission for grading. To use a different submission, you must "activate" it prior to the end of the grace period (click “Submission History” button at bottom toolbar, then “Activate”).
+    We will not consider late submission of any missing parts of a deliverable. To make sure you have submitted everything, download your submitted files to double check. If your submitting large files, you are responsible for making sure they get uploaded to the system in time. You have 48 hours to verify your submissions!
+    No penalties for medical reasons or emergencies. And should they arise, you must contact the Dean of Students office. Any sensitive information, doctor's notes, medical documentation, explanation of emergencies, etc. should be submitted to the Dean’s office. After their office receives the information, they will notify us on your behalf. Do not share any sensitive information with us.
+
+Timing Policy
+
+    The course videos follow a logical sequence that includes knowledge-building and experience-building (assignments).
+    Assignments should be completed by their due dates, in order for timely peer assessment. Peer assessments should also be completed by their due dates, to give timely feedback.
+    You will have access to the course content for the scheduled duration of the course.
+
+Attendance Policy
+
+    This is a fully online course.
+    Login on a regular basis to complete your work, so that you do not have to spend a lot of time reviewing and refreshing yourself regarding the content.
+
+Netiquette
+
+    Netiquette refers to etiquette that is used when communicating on the Internet. Review the Ground Rules for Online Discussions. When you are communicating via email, discussion forums or synchronously (real-time), please use correct spelling, punctuation and grammar consistent with the academic environment and scholarship.
+    We expect all participants (learners, faculty, teaching assistants, staff) to interact respectfully. Learners who do not adhere to this guideline may be removed from the course.
+
+Dataset Ideas (may need API, or scraping)
+
+    DiffusionDB: A large-scale text-to-image prompt gallery dataset based on Stable Diffusion
+    FiveThirtyEight data
+    MalNet graphs (300GB) and MalNet images (80GB): 1262024 unique function call graphs across 696 families and 47 types of malware.
+    Google Dataset Search
+    Google Dataset Search
+    Google public datasets. Thanks Revant!
+    Kaggle public datasets
+    Data science competitions for Africa. Thanks Krupa!
+    Awesome Public Datasets. Thanks Marcel Gwerder!
+    NYC Taxi data for 2013 (suggested by Chris Wong). 2013 Trip Data (11.0GB). 2013 Fare Data (7.7GB). Visualization for a days trip. Thanks Jitesh.
+    Large datasets publicly available. Thanks Gopi!
+    Georgia Tech's campus data (has APIs): bus info, directory, building, T-square, room reservation, building facilities usage (e.g., electricity, lights, A/C, etc.), Oscar/course info/registration, etc.
+    Yahoo WebScope
+    Data.gov: U.S. Government's open data
+    IPEDS data: Postsecondary education data from National Centre for Education Statistics
+    Bureau of Labor Statistics data
+    Uber data: Anonymized data from over 2 billion trips
+    Freebase
+    Yelp
+    Microsoft Academic Graph
+    Numerous APIs from Google (e.g., Maps, Freebase, YouTube, etc.)
+    Zillow: real estate listing site
+    Numerous graph datasets (large and small): SNAP, Konect
+    Movies data: IMDB
+    List of lists of datasets for recommendations.
+    Thanks Jon!
+    Million song dataset by Echo Nest.
+    It contains not only the basic information of songs (artist, genre, year, length etc), but also some musical features(like tempo, pitch, key, brightness).
+    Thanks Minwei!
+    Dataset about soccer games, players, clubs.
+    No API, but easy to scrape.
+    For a soccer player: transfer history, performance, nationality, birth date, etc.
+    For a soccer club: performance, squad, etc.
+    Thanks Ding!
+    The Free 'Big Data' Sources Everyone Should Know
+    Quandl - a dataset search engine for time-series data.
+    Thanks Henry!
+    UCI also has a collection of links to various datasets sorted for various tasks (Classification, Regression, etc)
+    Thanks Vinodh!
+    Amazon AWS Public Data Sets (Thanks Jonathan!)
+    KDD Cup: annual competition in data mining, like Kaggle
+    Academic domain: Microsoft Academic Search, DBLP
+    Retrosheet: MLB statistics (Game/Play logs)
+    Classification datasets
+    Thanks Amish!
+    Various geophysical datasets for the oceans (magnetism, gravity, seismology, etc).
+    Thanks Ryan!
+    Social trends (Thanks Jonathan!)
+    Beer data (Thanks Jonathan!). Website offline :( . Older version at web.archive.org
+    Academic torrents (terabytes) (Thanks Vaibhav!)
+    Article Search API from the New York Times (all the way back to 1851!) (Thanks Guido!)
+    (Kayak: flight, hotel, car, etc.)
+    Data Science Initiative - Microsoft Research has various datasets and access to tools that can aid in data science research
+
+Resources
+Office of Disability Services
+
+The Office of Disability Services offers accommodations for students with disabilities. Please contact the office should you need help.
+Support Services
+
+Academic support, and personal support: Office of the Dean of Students, Counseling Center, Health Serivces, Women's Resource Center, LGBTQIA Resource Center, Veteran's Resource Center, Georgia Tech Police.
+Recommended Reading
+
+All content and course materials can be accessed online. There is no textbook for this course.
+
+All Georgia Tech students have FREE access to https://www.oreilly.com, where you can find a huge number of highly rated and classic books (e.g., the "animal" books) from O'Reilly and Pearson covering a wide variety of computer science topics, including some of those listed below. Just log in with your official GT email address, e.g., jdoe3@gatech.edu.
+Software engineering; become a better programmer and developer
+
+    Debugging
+    Clean Code
+    Refactoring
+    Design Patterns: Elements of Reusable Object-Oriented Software
+    The Pragmatic Programmer: From Journeyman to Master
+
+D3 Visualization; Javascript
+
+    Interactive Data Visualization for the Web, 2nd Edition
+    JavaScript: The Good Parts
+
+Big Data
+
+    Hadoop: The Definitive Guide, 2nd Edition
+    HBase: The Definitive Guide, 2nd Edition
+
+Python
+
+    Python Bootcamp, for campus MS Analytics students. By Chris Simpkins
+
+Data science, machine learning, data mining
+
+    Data Science for Business by Foster Provost and Tom Fawcett
+    The Elements of Statistical Learning: Data Mining, Inference, and Prediction by Trevor Hastie, Robert Tibshirani, and Jerome Friedman
+
+Visualization
+
+    A nice D3 tutorial
+    The Wall Street Journal Guide to Information Graphics: The Dos and Don'ts of Presenting Data, Facts, and Figures by Dona Wong
+    Information Dashboard Design: Displaying Data for At-a-Glance Monitoring by Stephen Few
+    Show Me the Numbers: Designing Tables and Graphs to Enlighten by Stephen Few
+
+SQL
+
+    Video courses and lectures: (1) Coursera, (2) lynda.gatech.edu and search for SQL courses
+    Interactive SQL tutorials
+    Books: (1) SQL Cookbook (recipes to solve specific problems), Visual QuickStart Guide (succinct topic-by-topic), SQL Pocket Guide (covers syntax variations of MySQL, Oracle, etc.)
+    Introductory tutorial
+
+Probability
+
+    FREE probability book, by Prof. Guy Lebanon. (From Amazon.)
+
+Human Computation
+
+    Human Computation book by Edith Law and Luis von Ahn
+
+How to manage multiple versions of Python packages?
+To get started, we recommend the excellent article on Which Python package manager should you use?
+
+If you've decided to go with pyenv, I recommend Managing Multiple Python Versions With pyenv.
+
+If you use Mac, we recommend to also check out The right and wrong way to set Python 3 as default on a Mac.
+
+Students in my reserach group said that Poetry seems to be fast replacing conda envs, and may even replace setuptools for pypi packages in the future.
+
+Prerequisites
+Review Polo's "warnings" before taking this course.
+Additional formal prerequisites for CSE 6242
+
+None, but you should have taken courses similar to those listed in the next section, at Georgia Tech or at another school.
+
+If you are an Analytics (OMS or campus) degree student, you should first take CSE 6040 and do very well in it; if necessary, please also first take CS 1301.
+Additional formal prerequisites for CX 4242
+(Undergraduate Semester level MATH 2605 Minimum Grade of D or
+Undergraduate Semester level MATH 2401 Minimum Grade of D or
+Undergraduate Semester level MATH 24X1 Minimum Grade of D) or
+and
+(Undergraduate Semester level MATH 3215 Minimum Grade of D or
+Undergraduate Semester level MATH 3225 Minimum Grade of D or
+Undergraduate Semester level ECE 3077 Minimum Grade of D or
+Undergraduate Semester level ISYE 2027 Minimum Grade of D)
+and
+(Undergraduate Semester level CS 1371 Minimum Grade of C or
+Undergraduate Semester level CS 1372 Minimum Grade of C or
+Undergraduate Semester level CX 4010 Minimum Grade of C or
+Undergraduate Semester level CX 4240 Minimum Grade of C)
+Course offerings and Registration
+Auditing & Pass/Fail
+Due to the large class size, we are not offering auditing and pass/fail option.
+Cannot Register for This Course?
+This course is currently offered to students in OMS CS (as an elective) and OMS Analytics (as a required course), and it is taught as one class. Due to the large combined class size, we are not able to increase the enrollment capacity. During the first week of class, there is usually a lot of movement in the course registration waitlist. Unfortunately, we do not have an estimate about the extent of the movement. We hope you will be able to enroll, and we will see you in class!
+Previous offerings
+See https://poloclub.github.io/#cse6242 for all past course offerings.
+Acknowledgment & Related Classes
+
+We thank Intel's support in curriculum development for the memory mapping module (scaling up algorithms with virtual memory).
+
+We thank Amazon Educate for providing free cloud credit for Amazon Web Services. We are excited to be am AWS partner university and part of AWS Educate's private beta.
+
+We thank Microsoft Azure's special grant for providing free cloud credit.
+
+We thank Tableau for Teaching program's data visualization software.
+Many thanks to my colleagues for sharing their course materials:
+
+    Prof. John Stasko - Information Visualization - Fall 2012
+    Prof. Jeff Heer - Research Topics in Interactive Data Analysis - Spring 2011
+    Prof. Christos Faloutsos - Multimedia Databases and Data Mining - Fall 2012
+
+© Georgia Tech
+
