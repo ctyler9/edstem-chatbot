@@ -31,6 +31,10 @@ def get_file():
          
     return [file_contents]
 
+
+
+if __name__ == "__main__":
+    print(len(get_files()))
     
-index_path = RAG.index(index_name="syllabus", collection=get_files())
+    #index_path = RAG.index(index_name="syllabus", collection=get_files())
 

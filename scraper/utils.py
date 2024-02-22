@@ -1,7 +1,6 @@
 import json
 import os
 
-
 def read_config(file_path):
     with open(file_path) as fp:
         dump = json.load(fp)
