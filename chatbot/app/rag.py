@@ -9,6 +9,13 @@ colbertv2_class_data = dspy.ColBERTv2(url='http://20.102.90.50:2017/wiki17_abstr
 dspy.settings.configure(lm=ollama_model, rm=colbertv2_class_data)
 
 
+class GenerateAnswer(dspy.Signature):
+    """Answer questions as a teach giving hints""" 
+
+    context = dspy.InputField(desc="will contain either the instructions of the question or the code for the autograder to grade the question")
+    question = dspy.InputField()
+    answer = dspy.OutputField(desc="give a response as a hint without revealing the direct answer to students")
+
 class RAG(dsyp.Module):
     def __init__(self, num_passages=3):
         super().__init__()
