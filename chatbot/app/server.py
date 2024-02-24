@@ -14,6 +14,7 @@ INDEX_ROOT = os.getenv("INDEX_ROOT")
 app = Flask(__name__)
 
 searcher = Searcher(index=INDEX_NAME, index_root=INDEX_ROOT)
+config = ColBERTConfig(root=INDEX_ROOT)
 counter = {"api" : 0}
 
 @lru_cache(maxsize=1000000)
@@ -21,13 +22,19 @@ def api_search_query(query, k):
     print(f"Query={query}")
     if k == None: k = 10
     k = min(int(k), 100)
-    pids, ranks, scores = searcher.search(query, k=100)
+    pids, ranks, scores = searcher.search(query, k=k)
     pids, ranks, scores = pids[:k], ranks[:k], scores[:k]
-    passages = [searcher.collection[pid] for pid in pids]
+    #passages = [searcher.collection[pid] for pid in pids]
     probs = [math.exp(score) for score in scores]
     probs = [prob / sum(probs) for prob in probs]
     topk = []
     for pid, rank, score, prob in zip(pids, ranks, scores, probs):
+        # I have no idea why the index is always so much greater than searcher.collection
+        # manual fix just to get it to run
+        searcher_len = len(searcher.collection)
+        if pid > searcher_len: 
+            pid = searcher_len - 1 
+
         text = searcher.collection[pid]            
         d = {'text': text, 'pid': pid, 'rank': rank, 'score': score, 'prob': prob}
         topk.append(d)
