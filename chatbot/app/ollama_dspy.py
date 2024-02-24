@@ -9,7 +9,7 @@ import dspy
 # I have also found that `stop='\n\n'` is required to get the model to stop generating text after the ansewr is complete. 
 # At least with mistral.
 
-ollama_model = dspy.OpenAI(api_base='http://localhost:11434/v1/', api_key='ollama', model='mistral:7b-instruct-v0.2-q6_K', stop='\n\n', model_type='chat')
+ollama_model = dspy.OpenAI(api_base='http://localhost:11434/v1/', api_key='ollama', model='mistral:7b', stop='\n\n', model_type='chat')
 
 # This sets the language model for DSPy.
 dspy.settings.configure(lm=ollama_model)

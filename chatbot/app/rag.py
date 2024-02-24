@@ -1,7 +1,8 @@
 import dspy
 
 # set up llm and retrieval model
-ollama_model = dspy.OpenAI(api_base='http://localhost:11434/v1/', api_key='ollama', model='gemma:2b', stop='\n\n', model_type='chat')
+#ollama_model = dspy.OpenAI(api_base='http://localhost:11434/v1/', api_key='ollama', model='gemma:2b', stop='\n\n', model_type='chat')
+ollama_model = dspy.OllamaLocal(model="mistral")
 colbertv2_class_data = dspy.ColBERTv2(url='http://localhost:8893/api/search')
 dspy.settings.configure(lm=ollama_model, rm=colbertv2_class_data)
 
@@ -35,7 +36,7 @@ if __name__ == "__main__":
     # Print the contexts and the answer.
     print(f"Question: {query}")
     print(f"Predicted Answer: {pred.answer}")
-    print(f"Context: {pred.context}")
+    #print(f"Context: {pred.context}")
     #print(f"Retrieved Contexts (truncated): {[c[:200] + '...' for c in pred.context]}")
 
 
