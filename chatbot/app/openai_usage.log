@@ -1,0 +1,10 @@
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 404 Not Found"
+Backing off request(...) for 0.7s (openai.NotFoundError: Error code: 404 - {'error': {'message': "model 'mistral:7b-instruct-v0.2-q6_K' not found, try pulling it first", 'type': 'api_error', 'param': None, 'code': None}})
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 404 Not Found"
+Backing off request(...) for 1.2s (openai.NotFoundError: Error code: 404 - {'error': {'message': "model 'mistral:7b-instruct-v0.2-q6_K' not found, try pulling it first", 'type': 'api_error', 'param': None, 'code': None}})
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 404 Not Found"
+Backing off request(...) for 2.6s (openai.NotFoundError: Error code: 404 - {'error': {'message': "model 'mistral:7b-instruct-v0.2-q6_K' not found, try pulling it first", 'type': 'api_error', 'param': None, 'code': None}})
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 404 Not Found"
+Backing off request(...) for 7.4s (openai.NotFoundError: Error code: 404 - {'error': {'message': "model 'mistral:7b-instruct-v0.2-q6_K' not found, try pulling it first", 'type': 'api_error', 'param': None, 'code': None}})
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
