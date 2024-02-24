@@ -35,6 +35,7 @@ if __name__ == "__main__":
     # Print the contexts and the answer.
     print(f"Question: {query}")
     print(f"Predicted Answer: {pred.answer}")
+    print(f"Context: {pred.context}")
     #print(f"Retrieved Contexts (truncated): {[c[:200] + '...' for c in pred.context]}")
 
 
