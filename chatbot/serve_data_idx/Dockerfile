@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.10.13-bookworm
 
 ENV INDEX_NAME="class_files_full"
 ENV INDEX_ROOT=".ragatouille/colbert/indexes"
@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE $PORT
 
-CMD ["python", "server.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:8893", "server:app"]

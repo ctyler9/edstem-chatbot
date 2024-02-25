@@ -1,5 +1,7 @@
 FROM python:3.10-slim
 
+ENV PORT=8501 
+
 # Set the working directory in the container
 WORKDIR /app
 

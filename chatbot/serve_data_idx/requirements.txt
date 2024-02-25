@@ -1,2 +1,4 @@
 ragatouille
 Flask
+gunicorn
+python-dotenv

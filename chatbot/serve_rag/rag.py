@@ -24,6 +24,33 @@ class RAG(dspy.Module):
         prediction = self.generate_answer(context=context, question=question)
         return dspy.Prediction(context=context, answer=prediction.answer)
 
+def compile_rag():
+    from dspy.datasets import HotPotQA
+
+    # Load the dataset.
+    dataset = HotPotQA(train_seed=1, train_size=20, eval_seed=2023, dev_size=50, test_size=0)
+
+    # Tell DSPy that the 'question' field is the input. Any other fields are labels and/or metadata.
+    trainset = [x.with_inputs('question') for x in dataset.train]
+
+    from dspy.teleprompt import BootstrapFewShot
+
+    # Validation logic: check that the predicted answer is correct.
+    # Also check that the retrieved context does actually contain that answer.
+    def validate_context_and_answer(example, pred, trace=None):
+        answer_EM = dspy.evaluate.answer_exact_match(example, pred)
+        answer_PM = dspy.evaluate.answer_passage_match(example, pred)
+        return answer_EM and answer_PM
+
+    # Set up a basic teleprompter, which will compile our RAG program.
+    teleprompter = BootstrapFewShot(metric=validate_context_and_answer)
+
+    # Compile!
+    compiled_rag = teleprompter.compile(RAG(), trainset=trainset)
+
+    return compiled_rag
+
+
 
 if __name__ == "__main__":
     rag = RAG()
@@ -36,6 +63,9 @@ if __name__ == "__main__":
     print(f"Predicted Answer: {pred.answer}")
     print(f"Context: {pred.context}")
     #print(f"Retrieved Contexts (truncated): {[c[:200] + '...' for c in pred.context]}")
+
+#    c_rag = compile_rag()
+#    c_rag.save(path="chatbot_module.json")
 
 
 
