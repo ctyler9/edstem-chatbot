@@ -10,6 +10,8 @@ COPY . /app/
 
 RUN pip install -r requirements.txt
 
-EXPOSE $PORT
+EXPOSE 8501 
 
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "app.py", "--server.port=8501"]
+
+#"--server.address=localhost"]

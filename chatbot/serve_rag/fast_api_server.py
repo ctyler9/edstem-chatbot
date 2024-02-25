@@ -50,3 +50,4 @@ async def api_search(query: str):
     print("API request count:", counter["api"])
     return api_search_query(query)
 
+

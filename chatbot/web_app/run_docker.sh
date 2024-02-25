@@ -1,1 +1,1 @@
-docker run streamlit:latest 
+docker run -p 8501:8501 streamlit:latest 

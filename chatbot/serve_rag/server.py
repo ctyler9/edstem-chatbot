@@ -15,7 +15,7 @@ import dspy
 # set up llm and retrieval model
 ollama_model = dspy.OllamaLocal(model="mistral:7b", max_tokens=500)
 colbertv2_class_data = dspy.ColBERTv2(url='http://localhost:8893/api/search')
-dspy.settings.configure(lm=ollama_model, rm=colbertv2_class_data)
+dspy.settings.configure(lm=ollama_model, rm=colbertv2_class_data, compiled_lm=True)
 
 class GenerateAnswer(dspy.Signature):
     """Answer questions as a TA giving hints""" 
