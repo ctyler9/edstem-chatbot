@@ -4,4 +4,4 @@ query = "for HW3Q4 Hi I tried, changing the datatype to decimal for 4.4 but stil
 RAG = RAGPretrainedModel.from_index(".ragatouille/colbert/indexes/class_files")
 results = RAG.search(query)
 
-print(results)
+print(results[0].keys())

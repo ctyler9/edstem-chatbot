@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, request
 from functools import lru_cache
 import math
 import os
 from dotenv import load_dotenv
 
-from colbert.infra import Run, RunConfig, ColBERTConfig
-from colbert import Searcher
+from ragatouille import RAGPretrainedModel
 
 load_dotenv()
 
@@ -13,33 +12,42 @@ INDEX_NAME = os.getenv("INDEX_NAME")
 INDEX_ROOT = os.getenv("INDEX_ROOT")
 app = Flask(__name__)
 
-searcher = Searcher(index=INDEX_NAME, index_root=INDEX_ROOT)
-#config = ColBERTConfig(root=INDEX_ROOT)
 counter = {"api" : 0}
+RAG = RAGPretrainedModel.from_index(os.path.join(INDEX_ROOT, INDEX_NAME))
 
 @lru_cache(maxsize=1000000)
 def api_search_query(query, k):
     print(f"Query={query}")
-    if k == None: k = 10
+    if k == None: 
+        k = 10
     k = min(int(k), 100)
-    pids, ranks, scores = searcher.search(query, k=k)
-    pids, ranks, scores = pids[:k], ranks[:k], scores[:k]
-    #passages = [searcher.collection[pid] for pid in pids]
-    probs = [math.exp(score) for score in scores]
-    probs = [prob / sum(probs) for prob in probs]
-    topk = []
-    for pid, rank, score, prob in zip(pids, ranks, scores, probs):
-        # I have no idea why the index is always so much greater than searcher.collection
-        # manual fix just to get it to run
-        searcher_len = len(searcher.collection)
-        if pid > searcher_len: 
-            pid = searcher_len - 1 
+    results = RAG.search(query=query, k=k)
+    
+    updated_keys = []
+    for adict in results:
+        new_dict = {}
+        # new_dict = {'text': text, 'pid': pid, 'rank': rank, 'score': score, 'prob': prob}
+        # old_dict = {"content": "text of the relevant passage", "score": 0.123456, "rank": 1, "document_id": "x"}
 
-        text = searcher.collection[pid]            
-        d = {'text': text, 'pid': pid, 'rank': rank, 'score': score, 'prob': prob}
-        topk.append(d)
-    topk = list(sorted(topk, key=lambda p: (-1 * p['score'], p['pid'])))
-    return {"query" : query, "topk": topk}
+        new_dict["text"] = adict["content"]
+        new_dict["score"] = adict["score"]
+        new_dict["pid"] = adict["document_id"]
+        new_dict["rank"] = adict["rank"]
+        updated_keys.append(new_dict) 
+
+    # Transform scores into probabilities
+    scores = [result["score"] for result in updated_keys]
+    probs = [math.exp(score) for score in scores]
+    total_prob = sum(probs)
+    probs = [prob / total_prob for prob in probs]
+
+    # Assign probabilities to each result
+    for i in range(len(updated_keys)):
+        updated_keys[i]["prob"] = probs[i]
+
+    sorted_results = sorted(updated_keys, key=lambda x: (-x["score"], x["pid"]))
+
+    return {"query" : query, "topk": sorted_results}
 
 @app.route("/api/search", methods=["GET"])
 def api_search():
