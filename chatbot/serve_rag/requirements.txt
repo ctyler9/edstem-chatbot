@@ -2,3 +2,4 @@ dspy-ai
 flask
 gunicorn
 python-dotenv
+fastapi

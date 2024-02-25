@@ -12,4 +12,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE $PORT
 
-CMD ["gunicorn", "-b", "0.0.0.0:8901", "server:app"]
+CMD ["gunicorn", "-b", "0.0.0.0:8901", "fast_api_server:app"]
