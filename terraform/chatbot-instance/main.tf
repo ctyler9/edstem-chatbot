@@ -8,20 +8,16 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("")
+  credentials = file("~/.gcp_keys/edstem-chatbot-983bb556436a.json")
   project     = "edstem-chatbot"
-  #region      = "us-central" # Choose your desired region
-  #zone        = "us-central1-c"
-  region = "southamerica-east1"
-  zone   = "southamerica-east1-c"
+  region      = "us-central" # Choose your desired region
+  zone        = "us-central1-b"
 }
 
 resource "google_compute_instance" "edstem-chatbot" {
   name         = "edstem-chatbot"
-  machine_type = "n1-standard-64"
-  #machine_type = "g2-standard-48"
-  #zone = "us-central1-c"
-  zone = "southamerica-east1-c"
+  machine_type = "n1-standard-8"
+  zone         = "us-central1-b"
 
   boot_disk {
     initialize_params {
@@ -48,9 +44,9 @@ resource "google_compute_instance" "edstem-chatbot" {
   }
 
   #  metadata = {
-  #   install-nvidia-driver = "True"
-  #  #proxy-mode            = "service_account"
-  #}
+  #    install-nvidia-driver = "True"
+  #    #proxy-mode            = "service_account"
+  #  }
 
   scheduling {
     automatic_restart   = "true"
